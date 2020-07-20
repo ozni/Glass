@@ -1,2 +1,2 @@
-# Glass
+# Google Glass
  
