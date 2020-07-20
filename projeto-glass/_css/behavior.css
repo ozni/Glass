@@ -1,0 +1,76 @@
+/*RESPONSIVIDADE*/
+@media (max-width: 500px){
+    #checkbtn{
+        display: inline;
+        font-size: 20pt;
+        padding: 10px;
+        margin-left: 50px;
+        line-height: 75px;
+    }
+
+    nav#menu{
+        height: 85px;
+        text-align: center;
+        
+    }
+
+    nav#menu ul{
+        position: relative;
+        display: block;
+        width: 120%;
+        height: 100px;
+        left: -140%;
+        transition: all .5s;
+    }
+
+    nav#menu ul li{
+        display: block;
+        padding-bottom: 20px;
+        font-size: 15pt;
+        padding: 7px;
+        margin-bottom: 0px;
+
+    }
+    
+    nav#menu #logo{
+        font-size: 35pt;
+        text-shadow: 2px 3px 1px rgba(65, 23, 23, 0.6);
+        display: inline;
+    
+    }
+
+    nav h1.sub{
+        display: none;
+    }
+
+    #check:checked ~ ul{
+        left: -8%;
+    }
+
+    img#spec-img{
+        width: 70%;
+    }
+
+    h1#title-form{
+        font-size: 15pt;
+    }
+
+    fieldset label{
+        font-size: 10pt;
+    }
+
+    iframe.videos{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media(max-width: 350px){
+    nav#menu #logo{
+        font-size: 30pt;
+    }
+
+    h1#title-form{
+        font-size: 12pt;
+    }
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+	<title>Contato</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="_css/form.css" />
+	<link rel="stylesheet" type="text/css" href="_css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="_css/behavior.css">
+</head>
+
+<body>
+	<div id="interface">
+		<nav id="menu">
+
+			<input type="checkbox" name="" id="check">
+			<h1 id="logo">Google Glass</h1>
+			<h1 class="sub">Uma Nova Forma de Ver o Mundo</h1>
+			<label for="check" id="checkbtn">
+				<i style="color: rgb(0, 0, 0);" class="fas fa-bars"></i>
+			</label>
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="specs.html">ESPECIFICAÇÕES</a></li>
+				<li><a href="fale-conosco.html">CONTATO</a></li>
+			</ul>
+		</nav>
+
+		<h1 id="title-form">Preencha o formulário de Contato</h1>
+
+		<form method="post" id="formulario" oninput="Calc()">
+			<fieldset id="usuario">
+				<legend>Identificação do Usuário</legend>
+				<p><label id="asterisco" for="cNome">Nome: </label><input type="text" name="tNome" id="cNome" size="20"
+						maxlength="30"><label for="cNome" class="asterisco"> *</label></p>
+				<p class="error" id="errorName">Preencha o campo e tente novamente.</p>
+				<p><label for="cEmail">E-mail: </label><input type="email" name="tEmail" id="cEmail"><label for="cEmail"
+						class="asterisco"> *</label></p>
+				<p class="error" id="errorEmail">Preencha o campo e tente novamente.</p>
+				<fieldset id="sexo">
+					<legend>Sexo:</legend>
+					<p><input type="radio" name="tSexo" id="cMasc" checked><label for="cMasc">Masculino</label></p>
+					<p><input type="radio" name="tSexo" id="cFem"><label for="cFem">Feminino</label></p>
+					<p><input type="radio" name="tSexo" id="cOutro"><label for="cOutro">Prefiro não Informar</label></p>
+				</fieldset>
+			</fieldset>
+
+			<fieldset id="endereco">
+				<legend> Endereço do Usuário (Opcional) </legend>
+				<p><label for="estado">Estado: <input type="text" name="estado" id="estado"></label></p>
+				<p><label for="cidade">Cidade: <input type="text" name="cidade" id="cidade"></label>
+					<p>
+						<p><label for="cep">CEP: <input type="text" name="cep" id="cep"></label></p>
+						<p><label for="cLogra">Logradouro: </label><input name="tLogra" id="cLogra" type="text"
+								size="20" maxlength="80" placeholder="Av, Rua, Alameda..."></p>
+			</fieldset>
+
+			<fieldset id="mensagem">
+				<legend>Mensagem do Usuário</legend>
+				<textarea name="cMsg" id="cMsg" cols="50" rows="5" placeholder="Digite sua mensagem"></textarea>
+				<p id="errorMessage" class="error">Digite sua mensagem e tente novamente</p>
+			</fieldset>
+
+			<fieldset id="pedido">
+				<legend>Deseja adquirir um Google Glass?</legend>
+				<p><input type="checkbox" name="tChek" id="cCheck" checked>
+					<label for="cCheck">Gostaria de adquirir um Google Glass quando disponível</label></p>
+				<p><label for="cCor">Cor:</label>
+					<input name="tCor" id="cCor" type="color" value="#0000ff"></p>
+				<p><label for="cQuant">Quantidade:</label>
+					<input name="tQuant" id="cQuant" type="number" min="0" max="10000" value="0"></p>
+				<p><label for="cTot">Preço Total: R$</label>
+					<input name="tTot" id="cTot" type="text" size="10" readonly></p>
+			</fieldset>
+			<p><input style="padding: 5px;" value="Enviar Mensagem" name="tEnviar" id="cEnviar" type="button"
+					onclick="sendMessage()"></p>
+		</form>
+		<footer id="rodape">
+			<a href="https://www.instagram.com/ozni_gabriel/" target="blank"><i id="insta"
+					class="fab fa-instagram"></i></a>
+			<a href="https://github.com/ozni?tab=repositories" target="blank"><i id="git" class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/ozni-gabriel/" target="blank"><i id="linkedin"
+					class="fab fa-linkedin"></i></a>
+		</footer>
+	</div>
+
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+	<script language="JavaScript" src="_javascript/funcoes.js"></script>
+
+	<script>
+		function Calc() {
+			quant = parseInt(document.getElementById("cQuant").value);
+			total = quant * 1500;
+			document.getElementById("cTot").value = total;
+		}
+	</script>
+</body>
+
+</html>
