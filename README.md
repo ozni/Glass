@@ -15,5 +15,5 @@
 * Verificação de Endereço de email utilizando uma Expressão Regular
 * Envio real email para "equipe de suporte"
 
-### Vamos nos conectar para trocarmos conhecimentos! :woman_technologist:
+### Vamos nos conectar para trocarmos conhecimentos!
 [**Instagram**](https://instagram.com/ozni_gabriel) | [**Linkedin**](https://www.linkedin.com/in/ozni-gabriel/)
