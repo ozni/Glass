@@ -16,8 +16,4 @@
 * Envio real email para "equipe de suporte"
 
 ### Vamos nos conectar para trocarmos conhecimentos! :woman_technologist:
-[:woman_technologist:](https://instagram.com/ozni_gabriel) | [Linkedin](https://www.linkedin.com/in/ozni-gabriel/)
-
-:arrow_forward:/play letitgo
-
-/play crickets
+[**Instagram**](https://instagram.com/ozni_gabriel) | [**Linkedin**](https://www.linkedin.com/in/ozni-gabriel/)
