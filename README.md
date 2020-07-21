@@ -18,4 +18,6 @@
 ### Vamos nos conectar para trocarmos conhecimentos! :woman_technologist:
 [:woman_technologist:](https://instagram.com/ozni_gabriel) | [Linkedin](https://www.linkedin.com/in/ozni-gabriel/)
 
-/play letitgo
+:arrow_forward:/play letitgo
+
+/play crickets
