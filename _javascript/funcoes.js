@@ -39,55 +39,48 @@ function right(){
 }
 
 function sendMessage(){
-    let name = document.querySelector('input#cNome').value;
-    let email = document.querySelector('input#cEmail').value;
-    let message = document.querySelector('textarea#cMsg').value;
-    const regEmail = /(\w|\d)@\w+(.com|.com.br)$/g //EXPRESSAO REGULAR PRA IDENTIFICAR UM ENDEREÇO DE EMAIL VÁLIDO
+    let name = document.querySelector('input#cNome')
+    let email = document.querySelector('input#cEmail')
+    let message = document.querySelector('textarea#cMsg')
+    elementos = [name, email, message]
+    let pNome = document.querySelector('p#errorName')
+    let pEmail = document.querySelector('p#errorEmail')
+    let pMsg = document.querySelector('p#errorMessage')
+    paragrafos = [pNome, pEmail, pMsg]
+    const regEmail = /^[a-z 0-9.]+@[a-z]+(\.com|\.com\.br)$/
 
     /*EMBORA ALGUMAS DESSAS PROPRIEDADES ABAIXO JÁ ESTEJAM DEFINIDAS NA PÁGINA DE ESTILOS
       TENHO QUE DEFINI-LAS AQUI TBM, PORQUE QUANDO O USUARIO CORRIGIR UM ERRO DELE, 
       E CLICAR EM ENVIAR MENSAGEM, MESMO COM OS CAMPOS JÁ PREENCHIDOS, E EMAIL JÁ CORRIGIDO, 
       A BORDA DO INPUT CONTINUARÁ VERMELHA, E A INFORMAÇÃO DE ERRO CONTINUARÁ APARECENDO.
-      OU SEJA, DA LINHA 13 A 19 TEMOS UMA GAMBIARRA DE "REFRESH"
-    */
-    document.querySelector('input#cNome').style.border="1px black solid"
-    document.querySelector('p#errorName').style.opacity="0"
-    document.querySelector('input#cEmail').style.border="1px black solid"
-    document.querySelector('p#errorEmail').style.opacity="0"
-    document.querySelector('p#errorEmail').innerHTML = "Preencha o campo e tente novamente."
-    document.querySelector('textarea#cMsg').style.border="1px black solid"
-    document.querySelector('p#errorMessage').style.opacity="0"
+      OU SEJA, DA LINHA 57 A 63 TEMOS UMA GAMBIARRA DE "REFRESH"*/
+    elementos.forEach(item => {
+        item.style.border = "1px solid black"
+    })
 
-    /*1ª PARTE DA VERIFICAÇÃO (CAMPOS EM BRANCO) */
-    if (name.length == 0 || email.length == 0){
+    paragrafos.forEach(item => {
+        item.innerHTML = ""
+    })
+
+    //1ª PARTE DA VERIFICAÇÃO (CAMPOS EM BRANCO) 
+    if (!name.checkValidity() || !email.checkValidity() || !message.checkValidity()){
         window.alert('CAMPOS OBRIGATÓRIOS NÃO PREENCHIDOS! TENTE NOVAMENTE')
-        if (name.length == 0 && email.length == 0){
-            document.querySelector('input#cNome').style.border="1px red solid"
-            document.querySelector('input#cEmail').style.border="1px red solid"
-            document.querySelector('p#errorName').style.opacity="1"
-            document.querySelector('p#errorEmail').style.opacity="1"
-        } else if (name.length == 0 && email.length != 0){
-            document.querySelector('input#cNome').style.border="1px red solid"
-            document.querySelector('p#errorName').style.opacity="1"
-        } else {
-            document.querySelector('input#cEmail').style.border="1px red solid"
-            document.querySelector('p#errorEmail').style.opacity="1"
-        }
+        document.querySelector('p#errorName').innerHTML = name.validationMessage
+        document.querySelector('p#errorEmail').innerHTML = email.validationMessage
+        document.querySelector('p#errorMessage').innerHTML = message.validationMessage
+        elementos.forEach(item => {
+            if(!item.checkValidity()){
+                item.style.border="1px solid red"
+            }
+        })
 
-    /*2ª PARTE DA VERIFICAÇÃO (EMAIL VÁLIDO) */
-    } else if (regEmail.test(email) == false){
+    //2ª PARTE DA VERIFICAÇÃO (EMAIL VÁLIDO)
+    } else if (regEmail.test(email.value) == false){
         window.alert('EMAIL INVALIDO! TENTE NOVAMENTE')
-        document.querySelector('input#cEmail').style.border="1px red solid"
-        document.querySelector('p#errorEmail').innerHTML = "Certifique-se de que não há erros no email informado"
-        document.querySelector('p#errorEmail').style.opacity="1"
+        email.style.border="1px red solid"
+        pEmail.innerHTML = "Certifique-se de que não há erros no email informado"
 
-    /*3ª PARTE DA VERIFICAÇÃO (MENSAGEM EM BRANCO) */
-    } else if (message.length == 0){
-        window.alert('CAMPO "MENSAGEM" NÃO PREENCHIDO! TENTE NOVAMENTE')
-        document.querySelector('textarea#cMsg').style.border="1px red solid"
-        document.querySelector('p#errorMessage').style.opacity="1"
-
-    /*SE TIVER TD CERTINHO POSSO MANDO O EMAIL */
+    //SE TIVER TD CERTINHO POSSO MANDAR O EMAIL
     } else {
         Email.send({
             Host: "smtp.gmail.com",
@@ -101,4 +94,5 @@ function sendMessage(){
             message => window.alert('EMAIL ENVIADO COM SUCESSO')
         );
     }
+
 }

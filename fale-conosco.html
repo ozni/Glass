@@ -33,12 +33,11 @@
 		<form method="post" id="formulario" oninput="Calc()">
 			<fieldset id="usuario">
 				<legend>Identificação do Usuário</legend>
-				<p><label id="asterisco" for="cNome">Nome: </label><input type="text" name="tNome" id="cNome" size="20"
-						maxlength="30"><label for="cNome" class="asterisco"> *</label></p>
-				<p class="error" id="errorName">Preencha o campo e tente novamente.</p>
-				<p><label for="cEmail">E-mail: </label><input type="email" name="tEmail" id="cEmail"><label for="cEmail"
+				<p><label id="asterisco" for="cNome">Nome: </label><input type="text" name="tNome" id="cNome" size="20" required><label for="cNome" class="asterisco"> *</label></p>
+				<p class="error" id="errorName"></p>
+				<p><label for="cEmail">E-mail: </label><input type="email" name="tEmail" id="cEmail" required><label for="cEmail"
 						class="asterisco"> *</label></p>
-				<p class="error" id="errorEmail">Preencha o campo e tente novamente.</p>
+				<p class="error" id="errorEmail"></p>
 				<fieldset id="sexo">
 					<legend>Sexo:</legend>
 					<p><input type="radio" name="tSexo" id="cMasc" checked><label for="cMasc">Masculino</label></p>
@@ -59,8 +58,8 @@
 
 			<fieldset id="mensagem">
 				<legend>Mensagem do Usuário</legend>
-				<textarea name="cMsg" id="cMsg" cols="50" rows="5" placeholder="Digite sua mensagem"></textarea>
-				<p id="errorMessage" class="error">Digite sua mensagem e tente novamente</p>
+				<textarea name="cMsg" id="cMsg" cols="50" rows="5" placeholder="Digite sua mensagem" required></textarea>
+				<p id="errorMessage" class="error"></p>
 			</fieldset>
 
 			<fieldset id="pedido">
